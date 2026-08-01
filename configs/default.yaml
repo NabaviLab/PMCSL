@@ -1,0 +1,55 @@
+project:
+  name: ProstateSemanticMIL
+  seed: 42
+  output_dir: outputs
+
+data:
+  datasets:
+    tcga_prad:
+      metadata_csv: data/metadata/tcga_prad.csv
+      wsi_root: data/wsis/tcga_prad
+    gleason19:
+      metadata_csv: data/metadata/gleason19.csv
+      wsi_root: data/wsis/gleason19
+    diagset:
+      metadata_csv: data/metadata/diagset.csv
+      wsi_root: data/wsis/diagset
+
+  class_mapping:
+    0: Grade1
+    1: Grade2
+    2: Grade3
+    3: Grade4
+
+  magnifications:
+    - {name: 5x, target_mpp: 2.0}
+    - {name: 10x, target_mpp: 1.0}
+    - {name: 20x, target_mpp: 0.5}
+
+  patch_size: 224
+  stride: 224
+  min_tissue_fraction: 0.60
+  num_workers: 8
+
+preprocessing:
+  thumbnail_size: 2048
+  saturation_threshold: 20
+  min_component_area: 500
+  morphology_kernel_size: 7
+  jpeg_quality: 95
+
+feature_extraction:
+  backbone: resnet50
+  pretrained: true
+  output_dim: 2048
+  batch_size: 128
+  device: cuda
+  amp: true
+
+prompts:
+  provider: gemini
+  model_name: gemini-2.5-pro
+  description_output: data/prompts/gleason_descriptions.json
+  token_encoder: microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext
+  token_output: data/prompts/prompt_tokens.pt
+  max_length: 128

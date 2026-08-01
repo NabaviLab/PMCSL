@@ -1,0 +1,11 @@
+# Copy to configs/paths.local.yaml and edit for your environment.
+tcga_prad:
+  metadata_csv: /absolute/path/to/tcga_prad.csv
+  wsi_root: /absolute/path/to/TCGA-PRAD
+gleason19:
+  metadata_csv: /absolute/path/to/gleason19.csv
+  wsi_root: /absolute/path/to/GLEASON19
+diagset:
+  metadata_csv: /absolute/path/to/diagset.csv
+  wsi_root: /absolute/path/to/DiagSet
+output_root: /absolute/path/to/processed_outputs
