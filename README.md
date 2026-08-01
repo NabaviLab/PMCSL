@@ -39,7 +39,6 @@ utils/
 train.py
 test.py
 infer.py
-run_five_folds.py
 
 README.md
 requirements.txt
