@@ -1,4 +1,4 @@
-# Pathology-Aware Multi-Scale Cross-Modal Semantic Learning for Weakly Supervised Prostate Cancer Grading
+# Pathology-Aware Cross-Modal Semantic Learning Prostate Cancer Grading
 
 Official PyTorch implementation of our pathology-aware multimodal framework for weakly supervised prostate cancer grading from whole-slide images (WSIs). The proposed framework integrates multi-scale visual representations with large language model (LLM)-generated histopathology concepts through cross-attention and hierarchical semantic fusion for accurate Grade Group prediction.
 
